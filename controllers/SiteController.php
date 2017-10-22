@@ -71,7 +71,7 @@ class SiteController extends Controller
         $response = Bot::$api->setWebhook(
             [
                 'url'=>'https://bot.mvysochin.com/bot',
-                'certificate'=> $file ]);
+                'certificate'=> $file ])->send();
         var_dump($response);die;
     }
 
