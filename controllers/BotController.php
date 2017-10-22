@@ -21,11 +21,17 @@ class BotController extends Controller
      */
     public function actionIndex()
     {
-
+        $this->log();
         $bot = new Bot([
             'token' => Yii::$app->params['bot_token']
         ]);
         $response = Bot::$api->getWebhookInfo()->send();
         var_dump($response);die;
+    }
+
+    public function log(){
+        $data = print_r($_SERVER,1).PHP_EOL;
+        $data.= print_r($_POST,1).PHP_EOL;
+        file_put_contents('files/log.txt',$data);
     }
 }
