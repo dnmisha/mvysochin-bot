@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use bot\Bot;
+use bot\InputFile;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -66,7 +67,11 @@ class SiteController extends Controller
         $bot = new Bot([
             'token' => Yii::$app->params['bot_token']
         ]);
-        $response = Bot::$api->sendMessage('');
+        $file = new InputFile('@webroot/ssl.bot.mvysochin.com.crt');
+        $response = Bot::$api->setWebhook(
+            [
+                'url'=>'https://bot.mvysochin.com/bot',
+                'certificate'=> $file ]);
         var_dump($response);die;
     }
 
