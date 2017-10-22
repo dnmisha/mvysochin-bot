@@ -45,6 +45,13 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'pattern' => '',
+                    'route' => 'site/index',
+                    'suffix' => '',
+                ],
+                '<controller>/<action>/<id:\d+>'=>'<controller>/<action>',
+                'bot' => 'bot/index',
             ],
         ],
     ],

@@ -28,4 +28,4 @@ phpunit.phar
 
 tests/_output/*
 tests/_support/_generated
-/config/params-local.php
+config/params-local.php
