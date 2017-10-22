@@ -25,7 +25,7 @@ class BotController extends Controller
         $bot = new Bot([
             'token' => Yii::$app->params['bot_token']
         ]);
-        $response = Bot::$api->sendMessage('');
+        $response = Bot::$api->getWebhookInfo()->send();
         var_dump($response);die;
     }
 }
